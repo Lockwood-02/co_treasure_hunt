@@ -92,10 +92,11 @@ function App() {
   function submitAnswer(value = answer) {
     let correct = false
     const normalized = String(value).trim().toLowerCase()
+    const expected = String(puzzle.code ?? puzzle.answer ?? '').trim().toLowerCase()
 
-    if (puzzle.type === 'physical') correct = normalized === puzzle.code.toLowerCase()
-    if (puzzle.type === 'scramble' || puzzle.type === 'sequence') correct = normalized === puzzle.answer
-    if (puzzle.type === 'choice' || puzzle.type === 'compass') correct = normalized === puzzle.answer
+    if (['physical', 'scramble', 'sequence', 'choice', 'compass'].includes(puzzle.type)) {
+      correct = normalized === expected
+    }
     if (puzzle.type === 'order') correct = order.join('') === puzzle.answer
 
     if (!correct) {
@@ -309,7 +310,7 @@ function App() {
 
               <div className="hint-wrap">
                 <button className="hint-button" onClick={() => setHintOpen((open) => !open)} aria-expanded={hintOpen}><span>?</span>{hintOpen ? 'Hide hint' : 'Need a hint?'}</button>
-                {hintOpen && <p className="hint-text">{puzzle.type === 'physical' ? `Demo mode: use “${puzzle.code}”. Replace this with your event’s real code later.` : puzzle.type === 'order' ? 'Think telescope, electricity, DNA, computer.' : 'Read every word carefully—the answer is right in front of you.'}</p>}
+                {hintOpen && <p className="hint-text">{puzzle.type === 'physical' ? `Demo mode: use “${puzzle.code}”. Replace this with your event’s real code later.` : puzzle.type === 'order' ? 'Think telescope, electricity, computer, DNA.' : 'Read every word carefully—the answer is right in front of you.'}</p>}
               </div>
             </div>
           </section>
