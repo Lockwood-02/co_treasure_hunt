@@ -83,11 +83,24 @@ footer { padding: 24px max(20px, calc((100vw - 1180px) / 2)); display: flex; jus
 .route-stop.current span { color: white; border: 2px solid var(--orange); background: var(--orange); box-shadow: 0 0 0 4px rgba(220,96,56,.18); }
 
 .puzzle-stage { max-width: 920px; margin: 0 auto; padding: 38px 20px 30px; }
+.travel-clue-card { margin-bottom: 18px; padding: clamp(22px, 5vw, 34px); background: #e4e8cf; border: 1px solid #d4d9bc; }
+.travel-clue-heading { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; }
+.travel-clue-heading h2 { margin: 0; font: 400 clamp(1.35rem, 4vw, 1.8rem) 'DM Serif Display', Georgia, serif; }
+.travel-clue-card .riddle-copy { margin-top: 24px; background: rgba(255,255,255,.58); }
+.travel-instruction { margin: 18px 0 0; display: flex; align-items: flex-start; gap: 10px; color: #5e685f; font-size: .78rem; line-height: 1.55; }
+.travel-instruction span { color: var(--orange); font-size: 1rem; font-weight: 800; }
 .location-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; margin-bottom: 18px; padding: 22px 24px; background: #e4e8cf; border: 1px solid #d4d9bc; }
 .location-pin { display: grid; place-items: center; width: 45px; height: 45px; border-radius: 50%; background: var(--forest); color: var(--lime); font-size: 1.4rem; }
 .location-label { margin-bottom: 3px; color: #698036; }
 .location-card h2 { margin: 0; font: 400 1.45rem 'DM Serif Display', Georgia, serif; }
 .location-card p { margin: 3px 0 0; color: #687269; font-size: .76rem; }
+.mystery-card { background: #ebe6d9; border-style: dashed; }
+.mystery-card .location-pin { background: #7b7c6d; color: white; }
+.destination-card { background: #e4e8cf; animation: revealDestination .35s ease-out; }
+@keyframes revealDestination {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .puzzle-type { padding: 7px 10px; border-radius: 2px; font-size: .58rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .puzzle-type.physical { background: #fff9e7; color: #9b6a23; }
 .puzzle-type.digital { background: #d9e9e5; color: #327062; }
@@ -96,6 +109,11 @@ footer { padding: 24px max(20px, calc((100vw - 1180px) / 2)); display: flex; jus
 .puzzle-number { color: var(--orange); font-size: .67rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
 .puzzle-card > h2 { max-width: 600px; margin: 12px 0 14px; font: 400 clamp(2rem, 5vw, 3.15rem)/1.02 'DM Serif Display', Georgia, serif; letter-spacing: -.02em; }
 .puzzle-prompt { max-width: 640px; margin: 0; color: #616d66; font-size: .95rem; line-height: 1.7; }
+.riddle-copy { position: relative; margin: 30px 0 0; padding: clamp(23px, 5vw, 34px); border: 0; border-left: 4px solid var(--lime); background: #eef0df; color: #34433d; font: 400 clamp(1.25rem, 3.5vw, 1.7rem)/1.45 'DM Serif Display', Georgia, serif; }
+.riddle-copy::before { content: '“'; position: absolute; top: -20px; right: 20px; color: rgba(24,60,52,.1); font: 400 6rem/1 'DM Serif Display', Georgia, serif; }
+.trail-rule { margin-top: 28px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; background: #f0ecdf; border-left: 3px solid #be9041; }
+.trail-rule p { margin: 0; color: #6d6b60; font-size: .76rem; line-height: 1.45; }
+.trail-rule strong { color: var(--ink); }
 .answer-form, .digital-area, .option-list { margin-top: 35px; }
 .answer-form label { display: block; margin-bottom: 9px; font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .input-row { display: flex; }
@@ -197,6 +215,10 @@ button:disabled { cursor: not-allowed; opacity: .45; }
   .route-stop { flex: 0 0 41px; }
   .route-stop i { min-width: 17px; }
   .puzzle-stage { padding: 18px 12px 24px; }
+  .travel-clue-card { padding: 20px 16px; }
+  .travel-clue-heading { grid-template-columns: auto 1fr; gap: 12px; }
+  .travel-clue-heading .puzzle-type { grid-column: 2; justify-self: start; }
+  .travel-clue-card .riddle-copy { padding: 22px 18px; font-size: 1.2rem; }
   .location-card { grid-template-columns: auto 1fr; gap: 12px; padding: 16px; }
   .location-pin { width: 38px; height: 38px; }
   .location-card h2 { font-size: 1.18rem; }

@@ -16,19 +16,79 @@ const TEAMS = [
   { letter: 'L', name: 'Lions', animal: '🦁', color: '#C97834' },
 ]
 
-const PUZZLES = [
-  { letter: 'A', place: 'Founders Hall', spot: 'Beneath the bell tower', type: 'physical', code: '1847', prompt: 'Find the weathered blue envelope. Solve the four-number cipher printed inside.' },
-  { letter: 'B', place: 'Campus Library', spot: 'North reading room', type: 'physical', code: 'STACKS', prompt: 'Locate the marked book on the history shelf. The bookmark holds your next code.' },
-  { letter: 'C', place: 'Student Union', spot: 'Beside the fireplace', type: 'physical', code: 'SPARK', prompt: 'Find the kickoff weekend poster. Use the highlighted letters to uncover the code word.' },
-  { letter: 'D', place: 'Science Quad', spot: 'Center sculpture', type: 'order', answer: '3142', prompt: 'A brass plate reads: “Oldest to newest.” Tap the discoveries in chronological order.' },
-  { letter: 'E', place: 'Memorial Garden', spot: 'Stone archway', type: 'physical', code: 'ROOTS', prompt: 'Find the rubbing sheet in the supply box and reveal the hidden five-letter word.' },
-  { letter: 'F', place: 'Arts Center', spot: 'Main lobby mural', type: 'scramble', answer: 'CREATE', prompt: 'The mural has scattered letters. Unscramble them to name what artists do.' },
-  { letter: 'G', place: 'Recreation Center', spot: 'Courtyard entrance', type: 'physical', code: 'VICTORY', prompt: 'Count the pennants, then use the key on the clipboard to decode the winning word.' },
-  { letter: 'H', place: 'Chapel Steps', spot: 'Top landing', type: 'choice', answer: 'echo', prompt: 'I speak without a mouth and answer without being asked. What am I?', options: ['A shadow', 'An echo', 'A bell'] },
-  { letter: 'I', place: 'Dining Commons', spot: 'East patio', type: 'physical', code: 'FEAST', prompt: 'Match the menu symbols on the table card. Read the circled letters from left to right.' },
-  { letter: 'J', place: 'Clock Plaza', spot: 'Under the west clock', type: 'sequence', answer: '34', prompt: 'Complete the sequence: 1, 2, 3, 5, 8, 13, 21, __' },
-  { letter: 'K', place: 'Alumni House', spot: 'Front porch', type: 'physical', code: 'LEGACY', prompt: 'Arrange the photo cards from oldest to newest. Flip them over to reveal the code.' },
-  { letter: 'L', place: 'Observatory Lawn', spot: 'Star marker', type: 'compass', answer: 'north', prompt: 'Face the observatory. The final marker is opposite the setting sun. Which direction is it?', options: ['North', 'East', 'South', 'West'] },
+const CHECKPOINTS = [
+  {
+    letter: 'A', location: 'REC',
+    riddle: 'Where weights are lifted, hoops are shot, and swimmers race through lanes. Go where Norse come to move and play.',
+    type: 'physical', code: '1847',
+    prompt: 'Find the weathered blue envelope at the puzzle station. Solve the four-number cipher printed inside.',
+  },
+  {
+    letter: 'B', location: 'Student Union',
+    riddle: 'When you want a meal made to order, this is where campus restaurants serve the crowd. Find the building where you can choose your lunch from a counter.',
+    type: 'physical', code: 'STACKS',
+    prompt: 'Locate the marked clue card at the puzzle station. The letters on it hold your next code.',
+  },
+  {
+    letter: 'C', location: 'Fine Arts Center',
+    riddle: 'Music fills the halls, art covers the walls, and performers take the stage. Find the home of NKU’s creative minds.',
+    type: 'physical', code: 'SPARK',
+    prompt: 'Find the illustrated puzzle sheet. Use the highlighted letters to uncover the code word.',
+  },
+  {
+    letter: 'D', location: 'Baseball Complex',
+    riddle: 'A diamond is here, but no jewels are found. Bats crack and runners race the bases. Go where the Norse play baseball.',
+    type: 'order', answer: '3142',
+    prompt: 'A brass plate reads: “Oldest to newest.” Tap the discoveries in chronological order.',
+  },
+  {
+    letter: 'E', location: 'Griffin Hall',
+    riddle: 'Computers, cameras, and big ideas help students create what comes next. Find the home of technology and media.',
+    type: 'physical', code: 'ROOTS',
+    prompt: 'Find the rubbing sheet in the supply box and reveal the hidden five-letter word.',
+  },
+  {
+    letter: 'F', location: 'Founders Hall',
+    riddle: 'Its name honors the people who helped start this university. Find the hall named for those who came first.',
+    type: 'scramble', answer: 'CREATE',
+    prompt: 'The clue contains six scattered letters. Unscramble them to name what artists do.',
+  },
+  {
+    letter: 'G', location: 'Library',
+    riddle: 'Thousands of stories sit silently on shelves, waiting for someone to open them. Find the place where students read, research, and study.',
+    type: 'physical', code: 'VICTORY',
+    prompt: 'Count the pennants pictured on the puzzle sheet, then use its key to decode the winning word.',
+  },
+  {
+    letter: 'H', location: 'Tennis Complex',
+    riddle: 'No courtrooms are here—only courts with nets. Rackets swing and yellow balls fly. Find the place where the Norse play tennis.',
+    type: 'choice', answer: 'echo', options: ['A shadow', 'An echo', 'A bell'],
+    prompt: 'I speak without a mouth and answer without being asked. What am I?',
+  },
+  {
+    letter: 'I', location: 'University Center',
+    riddle: 'At the edge of the plaza, this building helps students find their way. Look for the place with the bookstore, support offices, and a bright atrium.',
+    type: 'physical', code: 'FEAST',
+    prompt: 'Match the menu symbols on the table card. Read the circled letters from left to right.',
+  },
+  {
+    letter: 'J', location: 'Softball Complex',
+    riddle: 'This diamond has bats, gloves, and bases too, but a larger ball takes the field. Find where the Norse play softball.',
+    type: 'sequence', answer: '34',
+    prompt: 'Complete the sequence: 1, 2, 3, 5, 8, 13, 21, __',
+  },
+  {
+    letter: 'K', location: 'Regents Hall',
+    riddle: 'Volleyballs fly over the net and basketball teams practice their plays. Find the hall where athletes and events gather.',
+    type: 'physical', code: 'LEGACY',
+    prompt: 'Arrange the photo cards from oldest to newest. Flip them over to reveal the code.',
+  },
+  {
+    letter: 'L', location: 'New Residence Hall',
+    riddle: 'Five floors of suites give students a place to study, relax, and call home. Find the newest home in Booth Residential Village.',
+    type: 'compass', answer: 'east', options: ['North', 'East', 'South', 'West'],
+    prompt: 'The final marker is opposite the setting sun. Which direction is it?',
+  },
 ]
 
 const DISCOVERIES = [
@@ -42,10 +102,14 @@ const INITIAL_PROGRESS = Object.fromEntries(TEAMS.map((team) => [team.letter, 0]
 
 function loadProgress() {
   try {
-    return { ...INITIAL_PROGRESS, ...JSON.parse(localStorage.getItem('trailbound-progress') || '{}') }
+    return { ...INITIAL_PROGRESS, ...JSON.parse(localStorage.getItem('trailbound-progress-v3') || '{}') }
   } catch {
     return INITIAL_PROGRESS
   }
+}
+
+function normalize(value) {
+  return String(value).trim().toLowerCase().replace(/[^a-z0-9]/g, '')
 }
 
 function ArrowIcon() {
@@ -63,16 +127,16 @@ function App() {
 
   const team = TEAMS.find((item) => item.letter === selectedLetter)
   const solved = team ? progress[team.letter] || 0 : 0
-  const puzzleIndex = team ? (TEAMS.findIndex((item) => item.letter === team.letter) + solved) % 12 : 0
-  const puzzle = PUZZLES[puzzleIndex]
+  const checkpointIndex = team ? (TEAMS.findIndex((item) => item.letter === team.letter) + solved) % CHECKPOINTS.length : 0
+  const checkpoint = CHECKPOINTS[checkpointIndex]
   const path = useMemo(() => {
     if (!team) return []
     const start = TEAMS.findIndex((item) => item.letter === team.letter)
-    return Array.from({ length: 12 }, (_, index) => PUZZLES[(start + index) % 12].letter)
+    return Array.from({ length: CHECKPOINTS.length }, (_, index) => CHECKPOINTS[(start + index) % CHECKPOINTS.length].letter)
   }, [team])
 
   useEffect(() => {
-    localStorage.setItem('trailbound-progress', JSON.stringify(progress))
+    localStorage.setItem('trailbound-progress-v3', JSON.stringify(progress))
   }, [progress])
 
   function chooseTeam(letter) {
@@ -90,25 +154,24 @@ function App() {
   }
 
   function submitAnswer(value = answer) {
-    let correct = false
-    const normalized = String(value).trim().toLowerCase()
-    const expected = String(puzzle.code ?? puzzle.answer ?? '').trim().toLowerCase()
-
-    if (['physical', 'scramble', 'sequence', 'choice', 'compass'].includes(puzzle.type)) {
-      correct = normalized === expected
-    }
-    if (puzzle.type === 'order') correct = order.join('') === puzzle.answer
+    const expected = checkpoint.code ?? checkpoint.answer
+    const correct = checkpoint.type === 'order'
+      ? order.join('') === checkpoint.answer
+      : normalize(value) === normalize(expected)
 
     if (!correct) {
-      setMessage({ type: 'error', text: 'Not quite—check the clue and try again.' })
+      setMessage({ type: 'error', text: 'Not quite—check the puzzle and try again.' })
       return
     }
 
-    setMessage({ type: 'success', text: 'Puzzle cracked! Your next stop is ready.' })
+    setMessage({
+      type: 'success',
+      text: solved === 11 ? 'Final puzzle solved! The treasure clue is ready.' : 'Puzzle solved! Your next location clue is ready.',
+    })
   }
 
   function continueHunt() {
-    setProgress((current) => ({ ...current, [team.letter]: Math.min(12, solved + 1) }))
+    setProgress((current) => ({ ...current, [team.letter]: Math.min(CHECKPOINTS.length, solved + 1) }))
     resetPuzzleState()
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -133,7 +196,7 @@ function App() {
         <section className="hero" id="top">
           <div className="eyebrow"><span></span> The campus treasure hunt</div>
           <h1>Your trail starts <em>here.</em></h1>
-          <p>Twelve teams. Twelve puzzles. One legendary prize. Choose your team to begin the hunt.</p>
+          <p>Twelve teams. Twelve hidden destinations. Follow each riddle, solve every puzzle, and uncover the treasure.</p>
           <div className="hero-stats" aria-label="Event overview">
             <div><strong>12</strong><span>Teams</span></div>
             <div><strong>12</strong><span>Stops</span></div>
@@ -147,7 +210,7 @@ function App() {
               <span className="step-label">Step 01</span>
               <h2 id="team-heading">Choose your team</h2>
             </div>
-            <p>Your team determines where your route begins. Everyone visits all 12 locations.</p>
+            <p>Your team determines which location riddle appears first. Every team completes all 12 checkpoints.</p>
           </div>
 
           <div className="team-grid">
@@ -159,7 +222,7 @@ function App() {
                   <span className="animal-badge" aria-hidden="true">{item.animal}</span>
                   <span className="team-name">{item.name}</span>
                   <span className="team-status">
-                    {teamProgress === 12 ? 'Hunt complete' : teamProgress > 0 ? `${teamProgress} of 12 solved` : `Starts at ${item.letter}`}
+                    {teamProgress === 12 ? 'Hunt complete' : teamProgress > 0 ? `${teamProgress} of 12 solved` : 'Trail not started'}
                   </span>
                   <span className="card-arrow"><ArrowIcon /></span>
                 </button>
@@ -176,8 +239,8 @@ function App() {
     )
   }
 
-  const isComplete = solved >= 12
-  const percent = Math.round((solved / 12) * 100)
+  const isComplete = solved >= CHECKPOINTS.length
+  const percent = Math.round((solved / CHECKPOINTS.length) * 100)
 
   return (
     <main className="hunt-shell">
@@ -219,10 +282,10 @@ function App() {
               <strong>{percent}%</strong>
             </div>
             <div className="progress-track"><span style={{ width: `${percent}%` }}></span></div>
-            <div className="route-track" aria-label={`Your route: ${path.join(', ')}`}>
+            <div className="route-track" aria-label={`Your route has ${solved} of 12 puzzles complete`}>
               {path.map((stop, index) => (
                 <div className={`route-stop ${index < solved ? 'done' : ''} ${index === solved ? 'current' : ''}`} key={stop}>
-                  <span>{index < solved ? '✓' : stop}</span>
+                  <span>{index < solved ? '✓' : index + 1}</span>
                   {index < path.length - 1 && <i></i>}
                 </div>
               ))}
@@ -230,24 +293,25 @@ function App() {
           </section>
 
           <section className="puzzle-stage">
-            <div className="location-card">
-              <div className="location-pin" aria-hidden="true">⌖</div>
-              <div>
-                <span className="location-label">Your next location</span>
-                <h2>{puzzle.letter} · {puzzle.place}</h2>
-                <p>{puzzle.spot}</p>
+            <div className="travel-clue-card">
+              <div className="travel-clue-heading">
+                <div className="location-pin" aria-hidden="true">⌖</div>
+                <div>
+                  <span className="location-label">Your location clue</span>
+                  <h2>Find the next puzzle station</h2>
+                </div>
+                <span className="puzzle-type digital">No answer needed</span>
               </div>
-              <span className={`puzzle-type ${puzzle.type === 'physical' ? 'physical' : 'digital'}`}>
-                {puzzle.type === 'physical' ? 'Physical clue' : 'Digital puzzle'}
-              </span>
+              <blockquote className="riddle-copy">“{checkpoint.riddle}”</blockquote>
+              <p className="travel-instruction"><span aria-hidden="true">→</span> Figure out the location, travel there together, and use what you find to solve the puzzle below.</p>
             </div>
 
             <div className="puzzle-card">
               <span className="puzzle-number">Puzzle {String(solved + 1).padStart(2, '0')}</span>
-              <h2>{puzzle.type === 'physical' ? 'Find it. Solve it. Enter it.' : 'Crack the digital clue.'}</h2>
-              <p className="puzzle-prompt">{puzzle.prompt}</p>
+              <h2>{checkpoint.type === 'physical' ? 'Find it. Solve it. Enter it.' : 'Crack the puzzle.'}</h2>
+              <p className="puzzle-prompt">{checkpoint.prompt}</p>
 
-              {puzzle.type === 'physical' && (
+              {checkpoint.type === 'physical' && (
                 <div className="answer-form">
                   <label htmlFor="code-answer">Enter your code</label>
                   <div className="input-row">
@@ -257,20 +321,20 @@ function App() {
                 </div>
               )}
 
-              {puzzle.type === 'scramble' && (
+              {checkpoint.type === 'scramble' && (
                 <div className="digital-area">
-                  <div className="letter-tiles" aria-label="Scrambled letters">{['T','R','C','E','A','E'].map((letter, index) => <span key={`${letter}${index}`}>{letter}</span>)}</div>
+                  <div className="letter-tiles" aria-label="Scrambled letters">{['T', 'R', 'C', 'E', 'A', 'E'].map((letter, index) => <span key={`${letter}${index}`}>{letter}</span>)}</div>
                   <div className="answer-form">
                     <label htmlFor="word-answer">Your answer</label>
                     <div className="input-row">
-                      <input id="word-answer" value={answer} onChange={(event) => { setAnswer(event.target.value); setMessage(null) }} placeholder="UNSCRAMBLE THE WORD" autoComplete="off" />
+                      <input id="word-answer" value={answer} onChange={(event) => { setAnswer(event.target.value); setMessage(null) }} onKeyDown={(event) => event.key === 'Enter' && submitAnswer()} placeholder="UNSCRAMBLE THE WORD" autoComplete="off" />
                       <button onClick={() => submitAnswer()} disabled={!answer.trim()}>Submit <ArrowIcon /></button>
                     </div>
                   </div>
                 </div>
               )}
 
-              {puzzle.type === 'order' && (
+              {checkpoint.type === 'order' && (
                 <div className="digital-area">
                   <div className="order-display">
                     {Array.from({ length: 4 }, (_, index) => <span key={index}>{order[index] ? DISCOVERIES.find((item) => item.id === order[index]).icon : index + 1}</span>)}
@@ -282,9 +346,9 @@ function App() {
                 </div>
               )}
 
-              {(puzzle.type === 'choice' || puzzle.type === 'compass') && (
+              {(checkpoint.type === 'choice' || checkpoint.type === 'compass') && (
                 <div className="option-list">
-                  {puzzle.options.map((option) => {
+                  {checkpoint.options.map((option) => {
                     const value = option.toLowerCase().replace('an ', '').replace('a ', '')
                     return <button className={answer === value ? 'selected' : ''} key={option} onClick={() => { setAnswer(value); setMessage(null) }}><span></span>{option}</button>
                   })}
@@ -292,7 +356,7 @@ function App() {
                 </div>
               )}
 
-              {puzzle.type === 'sequence' && (
+              {checkpoint.type === 'sequence' && (
                 <div className="digital-area">
                   <div className="number-sequence"><span>1</span><span>2</span><span>3</span><span>5</span><span>8</span><span>13</span><span>21</span><strong>?</strong></div>
                   <div className="sequence-options">{['29', '32', '34', '42'].map((option) => <button className={answer === option ? 'selected' : ''} key={option} onClick={() => { setAnswer(option); setMessage(null) }}>{option}</button>)}</div>
@@ -304,20 +368,29 @@ function App() {
                 <div className={`feedback ${message.type}`} role="status">
                   <span>{message.type === 'success' ? '✓' : '!'}</span>
                   <p>{message.text}</p>
-                  {message.type === 'success' && <button onClick={continueHunt}>{solved === 11 ? 'Reveal final clue' : 'Continue to next stop'} <ArrowIcon /></button>}
+                  {message.type === 'success' && <button onClick={continueHunt}>{solved === 11 ? 'Reveal final clue' : 'Reveal next location clue'} <ArrowIcon /></button>}
                 </div>
               )}
 
               <div className="hint-wrap">
-                <button className="hint-button" onClick={() => setHintOpen((open) => !open)} aria-expanded={hintOpen}><span>?</span>{hintOpen ? 'Hide hint' : 'Need a hint?'}</button>
-                {hintOpen && <p className="hint-text">{puzzle.type === 'physical' ? `Demo mode: use “${puzzle.code}”. Replace this with your event’s real code later.` : puzzle.type === 'order' ? 'Think telescope, electricity, computer, DNA.' : 'Read every word carefully—the answer is right in front of you.'}</p>}
+                <button className="hint-button" onClick={() => setHintOpen((open) => !open)} aria-expanded={hintOpen}><span>?</span>{hintOpen ? 'Hide puzzle hint' : 'Need a puzzle hint?'}</button>
+                {hintOpen && (
+                  <p className="hint-text">
+                    {checkpoint.type === 'physical' && <>Temporary test code: <strong>{checkpoint.code}</strong>. Replace this when the physical puzzle is finalized.</>}
+                    {checkpoint.type === 'order' && 'Think telescope, electricity, computer, DNA.'}
+                    {checkpoint.type === 'scramble' && 'The answer is a six-letter word for making something new.'}
+                    {checkpoint.type === 'choice' && 'Think about a sound that repeats what it hears.'}
+                    {checkpoint.type === 'sequence' && 'Each number is the sum of the two numbers before it.'}
+                    {checkpoint.type === 'compass' && 'The sun sets in the west. What direction is opposite west?'}
+                  </p>
+                )}
               </div>
             </div>
           </section>
 
           <section className="safety-note">
             <span aria-hidden="true">☀</span>
-            <div><strong>Stay together</strong><p>Every teammate should arrive before you begin a puzzle. Watch for roads and restricted areas.</p></div>
+            <div><strong>Stay together</strong><p>Every teammate should arrive before beginning the puzzle. Watch for roads and restricted areas.</p></div>
           </section>
 
           <div className="hunt-footer">
