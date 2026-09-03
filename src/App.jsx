@@ -31,7 +31,8 @@ Go where the Norse play baseball.`,
     letter: 'C',
     riddle: `When you want a meal made to order,
 this is where campus restaurants serve the crowd.
-Find the building where you can choose your lunch from a counter.`,
+Find the building where you can choose your lunch from a counter.
+(This is not Norse Commons)`,
     answer: '28',
   },
   {
