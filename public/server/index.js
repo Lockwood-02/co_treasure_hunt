@@ -4,6 +4,6 @@ export default {
       return env.ASSETS.fetch(request)
     }
 
-    return new Response('Trailbound is temporarily unavailable.', { status: 503 })
+    return new Response('CO Treasure Hunt is temporarily unavailable.', { status: 503 })
   },
 }

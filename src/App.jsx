@@ -74,7 +74,7 @@ Find this campus landmark where the Norse meet the lake.`,
 ]
 
 const INITIAL_PROGRESS = Object.fromEntries(TEAMS.map((team) => [team.letter, 0]))
-const PROGRESS_KEY = 'trailbound-progress-v4'
+const PROGRESS_KEY = 'CO Treasure Hunt-progress-v4'
 
 function loadProgress() {
   try {
@@ -156,9 +156,9 @@ function App() {
     return (
       <main className="landing-shell">
         <header className="topbar">
-          <a className="brand" href="#top" aria-label="Trailbound home">
+          <a className="brand" href="#top" aria-label="CO Treasure Hunt home">
             <span className="brand-mark">✦</span>
-            <span>TRAILBOUND</span>
+            <span>CO Treasure Hunt</span>
           </a>
           <span className="event-label">Kickoff Weekend ’26</span>
         </header>
@@ -206,7 +206,7 @@ function App() {
         </section>
 
         <footer>
-          <span>✦ Trailbound 2026</span>
+          <span>✦ CO Treasure Hunt 2026</span>
           <span>Adventure responsibly. Stay with your team.</span>
         </footer>
       </main>
@@ -221,7 +221,7 @@ function App() {
       <header className="hunt-header">
         <button className="brand brand-button" onClick={() => setScreen('teams')} aria-label="Return to team selection">
           <span className="brand-mark">✦</span>
-          <span>TRAILBOUND</span>
+          <span>CO Treasure Hunt</span>
         </button>
         <button className="team-switcher" onClick={() => setScreen('teams')}>
           <span>{team.animal}</span>
