@@ -86,7 +86,7 @@ footer { padding: 24px max(20px, calc((100vw - 1180px) / 2)); display: flex; jus
 .travel-clue-card { margin-bottom: 18px; padding: clamp(22px, 5vw, 34px); background: #e4e8cf; border: 1px solid #d4d9bc; }
 .travel-clue-heading { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; }
 .travel-clue-heading h2 { margin: 0; font: 400 clamp(1.35rem, 4vw, 1.8rem) 'DM Serif Display', Georgia, serif; }
-.travel-clue-card .riddle-copy { margin-top: 24px; background: rgba(255,255,255,.58); }
+.travel-clue-card .riddle-copy { margin-top: 24px; background: rgba(255,255,255,.58); white-space: pre-line; }
 .travel-instruction { margin: 18px 0 0; display: flex; align-items: flex-start; gap: 10px; color: #5e685f; font-size: .78rem; line-height: 1.55; }
 .travel-instruction span { color: var(--orange); font-size: 1rem; font-weight: 800; }
 .location-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; margin-bottom: 18px; padding: 22px 24px; background: #e4e8cf; border: 1px solid #d4d9bc; }
@@ -177,7 +177,8 @@ button:disabled { cursor: not-allowed; opacity: .45; }
 .completion-copy { max-width: 490px; color: rgba(255,255,255,.65); line-height: 1.6; }
 .final-clue-card { position: relative; z-index: 1; width: min(100%, 580px); margin: 22px 0 27px; padding: clamp(28px, 6vw, 45px); background: var(--paper); color: var(--ink); box-shadow: 9px 9px 0 var(--orange); }
 .clue-number { color: var(--orange); font-size: .65rem; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; }
-.final-clue-card p { margin: 17px 0; font: 400 clamp(1.5rem, 5vw, 2.2rem)/1.2 'DM Serif Display', Georgia, serif; }
+.final-clue-card p { margin: 17px 0; font: 400 clamp(1.15rem, 3.2vw, 1.55rem)/1.45 'DM Serif Display', Georgia, serif; }
+.final-phrase { display: block; margin: 22px 0; color: var(--forest); font: 400 clamp(1.55rem, 4.5vw, 2.25rem)/1.2 'DM Serif Display', Georgia, serif; }
 .clue-footnote { color: #7c837e; font-size: .66rem; }
 .completion-page .secondary-button { padding: 14px 22px; border: 1px solid rgba(255,255,255,.3); background: transparent; color: white; font-size: .72rem; font-weight: 800; cursor: pointer; }
 .completion-page .text-button { margin-top: 18px; color: rgba(255,255,255,.45); }
