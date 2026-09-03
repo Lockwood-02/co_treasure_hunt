@@ -59,7 +59,7 @@ Find the place where the Norse play tennis.`,
     letter: 'G',
     riddle: `At the edge of the plaza,
 this building helps students find their way.
-Look for the place with the bookstore, support offices, and a bright atrium.`,
+Look for the place with the bookstore, support offices, and a campus store.`,
     answer: '1968',
   },
   {
